@@ -1,4 +1,4 @@
-baseURL = "https://poehlmann.dev"
+baseURL = "/"
 languageCode = "en"
 DefaultContentLanguage = "en"
 title = "Website of Andrei Pöhlmann"
