@@ -18,7 +18,7 @@ is granted all access when it's checked against permissions.
 
 Now, **all**-statements are in general very powerful and you want to make sure that it's really 
 true before you state them (or at least people in maths and physics expect you that). And so it turns out the above statement is not entirely true.
- There is one specific, pathological case: on Linux, execute permission is
+ There is one specific case: on Linux, execute permission is
 granted to a root-privileged process only if at least one of the other permission categories &mdash;
 i.e. **user**, **group** or **other** &mdash; has the executable permission granted.
 
