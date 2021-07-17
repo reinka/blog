@@ -62,6 +62,12 @@ root@nano:/home/apoehlmann/workspace/misc/tlpi/ch14# ./hello.sh
 hello
 ```
 
+# Implementation specific
+
+**Note**: This is Linux specific! On some UNIX implementations root can still execute a file even when
+the executable permission is not granted to any category. I was curious and tried it on MacOS, however 
+it shows the same behaviour as on Linux.
+
 #### Resources
 
 Kerrisk, Michael. The Linux programming interface: a Linux and UNIX system programming handbook. No Starch Press, 2010.
