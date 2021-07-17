@@ -11,8 +11,8 @@ categories = [
 ]
 +++
 
-For a couple of weeks I have been learning Go and I found some resources of which 
-I think they are quite good, so I want to share them here.
+For the past couple of weeks I have been learning Go and I found some resources of which 
+I think they are worth sharing.
 
 ## [Learn Go with tests](https://quii.gitbook.io/learn-go-with-tests/): A practical approach to idiomatic Go
 
