@@ -36,7 +36,7 @@ class Solution:
       return dummy.next
 ```
 
-A dummy tail can be useful when working with doubly linked list: both the dummy head and tail mark the
+A dummy tail can be useful when working with doubly linked lists: both the dummy head and tail mark the
 boundaries of the linked list. This can allow you to skip the usual `if node.next is not None` checks during updates. 
 Leetcode's [146. LRU Cache](https://leetcode.com/problems/lru-cache/) is an example where this pattern is useful. 
 
@@ -79,7 +79,7 @@ This is also known as "Floyd's cycle detection algorithm" or "Floyd's tortoise a
 # Know thy pointers 
 
 As mentioned above, linked list operations are basically just pointer manipulations. I personally find linked list 
-problems conceptually easier than most array problems, but I can still confuse myself when I try to solve a pointer
+problems conceptually easier than most medium array problems, but I can still confuse myself when I try to solve a pointer
 manipulation problem that involves multiple pointers merely in my head. 
 
 ## Example: swap nodes
@@ -88,13 +88,26 @@ manipulation problem that involves multiple pointers merely in my head.
 It's often useful to draw an example linked list
 to visualize your problem and the solution and then to translate that into code. A nice example would be 
 [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/), where you have to swap each pair of nodes, 
-e.g. `1->2->3->4` should become `2->1->4->3`.
+e.g. 
+
+```Python
+1->2->3->4
+``` 
+should become
+
+```Python
+2->1->4->3
+```
 
 Here, again, we need two pointers that point to the two nodes that need to be swapped. However, this time two pointers 
 is not enough: we also need a 3rd pointer, `previous` or short `prev`, because `prev.next` must also be updated. 
 
 Let's take our `1->2->3->4` example for instance. As discussed above we would make use of
-a dummy node that points to the head/first node of the linked list, i.e. `dummy->1->2->3->4`. 
+a dummy node that points to the head/first node of the linked list, i.e. 
+
+```Python
+dummy->1->2->3->4
+``` 
 
 Let's say we now swap `1` and `2` only, this would result in something like this:
 
@@ -107,7 +120,8 @@ dummy
 So `2->1` seems correct. However, notice that we also need to update the `dummy` node, or in other words the `prev` node,
 because its next pointer still points to the `1`. 
 
-Let's call the `slow` and `fast` pointer `first` and `second` here. So our code could look something along the lines of:
+Let's call the `slow` and `fast` pointer `first` and `second` here (makes it conceptually simpler to think of it IMO). 
+So our code could look something along the lines of:
 
 ```Python
 class Solution:
@@ -145,7 +159,7 @@ class Solution:
 Even after coming up with the above solution myself, the code still looks slightly confusing to me because of all 
 the pointer assignments. The first time, it took me ~45 minutes to write it down even though I knew I had to
 use some kind of slow-and-fast-pointer approach. Mostly because at first I was too lazy to do the drawing, 
-and I thought maybe I could solve it only with 2 pointers instead of 3, making it a "more elegant" solution
+and I thought maybe I could solve it only with 2 pointers instead of 3 -- making it a "more elegant" solution
 because it needs fewer variables, right?
 
 #  Floyd's cycle detection algorithm
@@ -156,17 +170,15 @@ We already talked about this one above under "Slow and fast pointer", and the cl
 Now I don't know how likely it is to face it in a coding interview, however I would still suggest to learn about it. What 
 struck me most was another Leetcode problem, [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/):
 
-```bigquery
-Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
 
-There is only one repeated number in nums, return this repeated number.
-
-You must solve the problem without modifying the array nums and uses only constant extra space.
-
-```
+> Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive. 
+> 
+> There is only one repeated number in nums, return this repeated number.
+> 
+> You must solve the problem without modifying the array nums and uses only constant extra space.
 
 It turns out this problem can be actually reduced to a cycle detection problem, allowing you to solve it optimally in 
-O(N) time and O(1) space complexity, as required by the problem.
+O(N) time and O(1) space complexity, by using Floyd's cycle detection algorithm.
 
 
 # Some Leetcode problems
