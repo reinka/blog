@@ -453,9 +453,20 @@ On the why of the worst case, see answers to this quesiton on stackoverflow:
 [Why is the time complexity of performing n union find (union by size) operations O(n log n)?](https://stackoverflow.com/q/53149097)
 
 
+#### But does the optimization really help?
+Without any optimization `find` and `union` can lead to trees with height O(n). In such a situation, 
+the `find` and `union` operations require O(n) time [[1].](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
+
+The Wiki page referenced in [[1]](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
+contains a nice elaboration on the time complexity of union-find with different optimization combinations.
+
 # Some Leetcode problems
 
 ## Medium
 * [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
 * [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
 * [261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) (premium)
+
+# References
+
+[1] [Wikipedia: Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
