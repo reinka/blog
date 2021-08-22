@@ -454,8 +454,8 @@ On the why of the worst case, see answers to this quesiton on stackoverflow:
 
 
 #### But does the optimization really help?
-Without any optimization `find` and `union` can lead to trees with height O(n). In such a situation, 
-the `find` and `union` operations require O(n) time [[1].](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
+Without any optimization `find` and `union` can lead to trees with height O(k). In such a situation, 
+the `find` and `union` operations require O(k) time [[1].](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
 
 The Wiki page referenced in [[1]](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
 contains a nice elaboration on the time complexity of union-find with different optimization combinations.
