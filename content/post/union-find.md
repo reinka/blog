@@ -458,7 +458,7 @@ Without any optimization `find` and `union` can lead to trees with height O(n). 
 the `find` and `union` operations require O(n) time [[1].](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
 
 The Wiki page referenced in [[1]](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity)
-contains a nice elaboration on the time complexity of union-find with different combinations of optimizations.
+contains a nice elaboration on the time complexity of union-find with different optimization combinations.
 
 # Some Leetcode problems
 
