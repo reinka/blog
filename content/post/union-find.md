@@ -168,7 +168,7 @@ for edge in edges:
     self.union(node1, node2)
 ```
 
-# Optimization
+# Can we do better?
 
 By now we should have a basic understanding of how union-find constructs the components of a graph given a list of its edges. 
 
