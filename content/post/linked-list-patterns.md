@@ -1,7 +1,7 @@
 +++ author = "Andrei Pöhlmann"
 title = "Algorithm Patterns: Linked Lists"
 date = "2021-08-15"
-description = "title here"
+description = "Useful linked lists patterns to know about."
 tags = [
 "leetcode",
 ]
