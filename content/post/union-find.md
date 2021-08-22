@@ -15,8 +15,8 @@ categories = [
 This post presents a Python 3 implementation of the [union-find algorithm](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) with
 different optimization techniques: 
 
-1. rank and path compression
-2. size and path splitting.
+1. path compression and union by rank
+2. path splitting and union by size.
 
 
 # What is it good for?
