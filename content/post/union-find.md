@@ -4,7 +4,7 @@ date = "2021-08-21"
 description = "Python 3 implementation of the union-find algorithm with path splitting and union by size"
 tags = [
 "leetcode",
-"Python",
+"python",
 ]
 categories = [
 "algorithms",
