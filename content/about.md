@@ -9,7 +9,9 @@ author = "Andrei Pöhlmann"
 ~~I am a research engineer for urban autonomous driving at Mercedes-Benz AG in Stuttgart
 with main focus on Continous Integration, Continous Delivery and Automated Testing.~~
 
-I am a Cloud Engineer at SAP, working with Kubernetes on distributed systems.
+I am a Cloud Engineer at SAP working with Kubernetes on distributed systems (more specifically 
+on the SAP BTP, ABAP environement. Yeah, it's quite a tongue-twister. That's why it's also called Steampunk). 
+I joined SAP in June 2021.
 
 I hold a Statistics MSc degree with specialization in Deep Reinforcement Learning
 and the mathematics of Machine Learning. I wrote my master thesis at the [Bosch
