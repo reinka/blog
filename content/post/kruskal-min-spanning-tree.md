@@ -48,8 +48,7 @@ that does not lead to a cycle:
 3. Repeat step 2. & 3. until there are `V-1` edges in the spanning tree, where `V` corresponds to the number of nodes (also called *vertices*) 
    in the graph.
 
-If you're not familiar with  
-Union-Find you can check this earlier post: [GRAPH ALGORITHMS: UNION-FIND](https://andrei.poehlmann.dev/post/union-find/)
+If you're not familiar with Union-Find you can check this earlier post: [GRAPH ALGORITHMS: UNION-FIND](https://andrei.poehlmann.dev/post/union-find/)
 
 # Runtime Complexity
 
