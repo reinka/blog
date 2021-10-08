@@ -9,7 +9,7 @@ categories = [
 
 # Hello world!
 
-After 3 years I decided to move my old blog [www.apoehlmann.com](www.apoehlmann.com)
+After 3 years I decided to move my old blog [www apoehlmann com](www.apoehlmann.com)
 to a new domain, based on a new tech stack: Go & GitOps. 
 
 The result is this new website here. I wrote a couple more words on my old blog in the following post: 
