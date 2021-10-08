@@ -12,8 +12,8 @@ categories = [
 ]
 +++
 
-Today's daily LeetCode challenge is a problem I've had on my ToDo list for a while:
-[208. Implement a Trie](https://leetcode.com/problems/implement-trie-prefix-tree/). 
+This post presents a Python implementation for today's daily LeetCode challenge: Implement a Prefix Tree.
+(Link: [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)). 
 
 I'm kinda surprised how simple and straight-forward it kinda is especially if you're already familiar
 with graph problems (i.e. DFS, BFS, etc.). 
