@@ -11,7 +11,7 @@ enableRobotsTXT = true
 #disqusShortname = ""
 
 # Google Analytics
-googleAnalytics = "G-1QX8SZ0N4V"
+# googleAnalytics = "G-1QX8SZ0N4V"
 
 # Syntax highlighting
 pygmentsUseClasses = true
@@ -26,6 +26,7 @@ description = "Call me Andrei"
 profilePicture = "images/stgt-800-circ.png"
 keywords = ""
 favicon = "favicons/"
+gtagId = "G-1QX8SZ0N4V"
 # example ["css/custom.css"]
 customCss = []
 # example ["js/custom.js"]
