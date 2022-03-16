@@ -10,7 +10,7 @@ author = "Andrei Pöhlmann"
 with main focus on Continous Integration, Continous Delivery and Automated Testing.~~
 
 I'm a Cloud Engineer at SAP with strong interests in distributed systems (system design, Kubernetes & Docker), 
-Linux kernel (syscalls) and low-level networking (TCP/IP stack). I joined SAP in June 2021.
+Linux internals (syscalls, namespaces & cgroups) and low-level networking (TCP/IP stack). I joined SAP in June 2021.
 
 I hold a Statistics MSc degree with specialization in Deep Reinforcement Learning
 and the mathematics of Machine Learning. I wrote my master thesis at the [Bosch
