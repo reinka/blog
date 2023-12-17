@@ -129,9 +129,9 @@ Its structure is defined in the [Section 4.1.1](https://datatracker.ietf.org/doc
 ```
 Each field has a specific purpose:
 
-**ID**: A 16-bit identifier assigned by the program that generates the DNS query. It's used for matching responses with queries.
-**QR, Opcode, AA, TC, RD, RA, Z, RCODE**: These flags and codes specify various aspects of the DNS query/response, such as whether the message is a query or a response (QR), the type of query (Opcode), authoritative answer (AA), and more.
-**QDCOUNT, ANCOUNT, NSCOUNT, ARCOUNT**: These count fields specify the number of entries in the question (QD), answer (AN), authority (NS), and additional (AR) sections, respectively.
+* **ID**: A 16-bit identifier assigned by the program that generates the DNS query. It's used for matching responses with queries.
+* **QR, Opcode, AA, TC, RD, RA, Z, RCODE**: These flags and codes specify various aspects of the DNS query/response, such as whether the message is a query or a response (QR), the type of query (Opcode), authoritative answer (AA), and more.
+* **QDCOUNT, ANCOUNT, NSCOUNT, ARCOUNT**: These count fields specify the number of entries in the question (QD), answer (AN), authority (NS), and additional (AR) sections, respectively.
 
 The DNS header's format is further explained in [2.3.2. Data Transmission Order](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.2). In DNS, the most significant bit is on the left. For example, consider the representation of the number 170 (decimal):
 
