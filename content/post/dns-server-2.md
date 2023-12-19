@@ -181,11 +181,17 @@ class DNSHeader:
     ):
         self.id = hid
         self.qr = qr
-        self.opcode = (
-            self.aa
-        ) = self.tc = self.rd = self.ra = self.z = self.rcode = rcode
-        self.ancount = self.qdcount = qdcount
-        self.nscount = self.arcount = arcount
+        self.opcode = opcode
+        self.aa = aa
+        self.tc = tc 
+        self.rd = rd
+        self.ra = ra 
+        self.z = z 
+        self.rcode = rcode
+        self.ancount = ancount
+        self.qdcount = qdcount
+        self.nscount = nscount
+        self.arcount = arcount
 
     @staticmethod
     def from_bytes(message: bytes) -> "DNSHeader":
@@ -306,7 +312,7 @@ def main():
                 print(f"Received data from {addr}: {data}")
                 header = DNSHeader.from_bytes(data)
                 # ovwerrite received flags for our reply
-                header.qr, header.arcount, header.nscount = 1, 0, 0
+                header.qr, header.ancount, header.arcount, header.nscount = 1, 1, 0, 0
                 domain = "example.com"
                 q = DNSQuestion(domain)
                 a = DNSAnswer(domain, "8.8.8.8")
