@@ -229,3 +229,7 @@ $ dig @127.0.0.1 -p 1053 hello
 ```
 
 The output from `dig` indicates a warning about an ID mismatch. This is expected behavior, as our server uses a hardcoded ID, whereas `dig` expects a dynamically matched ID from the query.
+
+# Next steps
+
+We have a simple DNS server now that can listen to DNS requests and reply with a DNS Header. In a [next post we'll extend our response by a DNS question and answer section](https://andrei.poehlmann.dev/post/dns-server-2/).   
