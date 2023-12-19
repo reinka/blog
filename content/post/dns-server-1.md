@@ -73,7 +73,7 @@ $ dig @127.0.0.1 -p 1053 hello
 ;; MSG SIZE  rcvd: 34
 ```
 
-Unsurprisingly, our DNS server did not provide an answer for the domain `hello`.
+Unsurprisingly, `dig` is complaining about the response since our DNS server did not provide an answer for the domain `hello` but just echoed the received message.
 
 We should see server logs similar to:
 
@@ -195,6 +195,10 @@ We can now return the header as a response by our server:
 
 ```python
 import socket
+import struct
+
+class DNSHeader:
+    ...
 
 def main():
     print("Starting UDP server...")
