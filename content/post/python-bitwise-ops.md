@@ -146,7 +146,7 @@ class DNSHeader:
         ra = (flags >> 7) & 0x1
         z = (flags >> 4) & 0x7
         rcode = flags & 0xF
-        return DNSHeader(hid, qr, opcode, aa, tc, rd, ra, z, rcode, qdcount, ancount, nscount,arcount)QR (Query/Response Flag):
+        return DNSHeader(hid, qr, opcode, aa, tc, rd, ra, z, rcode, qdcount, ancount, nscount,arcount)
 ```
 
 Let's dissect `from_bytes` to understand how it decodes each field of the DNS header from a byte sequence. 
