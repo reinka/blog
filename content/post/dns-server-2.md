@@ -1,5 +1,5 @@
 +++ author = "Andrei Pöhlmann"
-title = "Building a DNS server from scratch: DNS message Question & Answer"
+title = "Building a DNS server from scratch: DNS Message Question & Answer"
 date = "2023-12-20"
 description = "Let's continue build our own DNS server from scratch by adding the DNS Question & Answer sections"
 tags = [
