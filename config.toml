@@ -66,6 +66,12 @@ title = "GitHub"
 url = "https://github.com/reinka/"
 
 [[params.socialIcons]]
+customSVG = true
+title = "leetcode"
+url = "https://leetcode.com/longtermist/"
+svgPath = "/images/leetcode.svg"
+
+[[params.socialIcons]]
 icon = "fab fa-instagram"
 title = "instagram"
 url = "https://www.instagram.com/mandelbrotmenge"
