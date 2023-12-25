@@ -65,7 +65,7 @@ icon = "fab fa-github"
 title = "GitHub"
 url = "https://github.com/reinka/"
 
-[[socialIcons]]
+[[params.socialIcons]]
 customSVG = true
 title = "leetcode"
 url = "https://leetcode.com/longtermist/"
