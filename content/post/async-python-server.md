@@ -1,6 +1,6 @@
 +++ author = "Andrei Pöhlmann"
 title = "Asynchronous TCP & UDP server with Python"
-date = "2023-01-15"
+date = "2024-01-15"
 description = "Let's code up our own asynchronous TCP & UDP servers using Python's asyncio module."
 tags = [
 "networking",
