@@ -19,7 +19,7 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 
 [params]
-title = "I'm Andrei Pöhlmann"
+title = "Hi, I'm Andrei"
 author = "Andrei Pöhlmann"
 #copyright = "2020-2021"
 description = '"When the many are reduced to one, what is the one reduced to?"'
