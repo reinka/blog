@@ -6,13 +6,9 @@ aliases = ["about-us", "about-me", "contact"]
 author = "Andrei Pöhlmann"
 +++
 
-~~I am an integration engineer for urban autonomous driving at Mercedes-Benz AG in Stuttgart
-with main focus on Continous Integration, Continous Delivery and Automated Testing.~~
 
-I'm a Cloud Engineer at SAP with strong interests in distributed systems (system design, Kubernetes & Docker), 
-Linux internals (syscalls, namespaces & cgroups) and low-level networking (TCP/IP stack). I joined SAP in June 2021.
-
-Additionally, since July 2022 I've been also contracting with [Hofvarpnir Studios](https://hofvarpnir.ai/) (part-time), a Silicon Valley based non-profit where we're building cloud infrastructure for AI safety engineers.
+I'm a Systems Engineer at AWS with strong interests in distributed systems, 
+Linux internals (syscalls, namespaces & cgroups) and low-level networking (TCP/IP stack). I joined AWS in October 2024.
 
 I hold a Statistics MSc degree with specialization in Deep Reinforcement Learning
 and the mathematics of Machine Learning. I wrote my master thesis at the [Bosch
