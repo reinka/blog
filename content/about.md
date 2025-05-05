@@ -7,7 +7,7 @@ author = "Andrei Pöhlmann"
 +++
 
 
-I'm a Systems Engineer at AWS with strong interests in distributed systems, 
+I'm a Systems Engineer at Amazon Web Services (AWS) with strong interests in distributed systems, 
 Linux internals (syscalls, namespaces & cgroups) and low-level networking (TCP/IP stack). I joined AWS in October 2024.
 
 I hold a Statistics MSc degree with specialization in Deep Reinforcement Learning
