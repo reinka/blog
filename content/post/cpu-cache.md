@@ -12,11 +12,11 @@ tags = [
     "perf"
 ]
 categories = [
-    "Systems Programming"
+    "System Performance"
 ]
 +++
 
-Reading LWN.net's article, "[Improving Linux networking performance](https://lwn.net/Articles/629155/)", highlights the immense pressure high-speed networking puts on a system. The article notes the time budget to process a single packet shrinks dramatically.
+Reading LWN.net's article, "[Improving Linux networking performance](https://lwn.net/Articles/629155/)", highlights the immense pressure high-speed networking puts on a system: as link rates climb from 10 to 100 Gb/s, the per‑packet budget collapses from ~1,230 ns (10 GbE) to 307 ns (40 GbE) and ~120 ns at 100 GbE.
 
 A quick calculation confirms this:
 * **Link Speed:** 100 Gbps = 12.5 Gigabytes/sec
@@ -36,9 +36,9 @@ We can measure this using Linux's `perf` utility. The experiment uses a C progra
 
 The idea is based on the CPU's memory hierarchy. According to official ARM documentation, the Neoverse N1 CPU fetches data from RAM in **64-byte chunks** called **cache lines**. Accessing data already in a cache is a "hit"; accessing data that isn't is a "miss," which forces the CPU to stall and wait.
 
-To exploit this, the C program allocates a **256MB** array, a size chosen to be orders of magnitude larger than the N1's L3 cache (which tops out at 4MB). It then uses a `STRIDE` macro to control the access pattern:
+To exploit this, the C program allocates a **256MB** array, a size chosen to be far larger than the on-chip last-level cache. Per Arm’s Neoverse N1 documentation, the DSU L3 is optional and configurable up to 4MB per cluster ([Arm Neoverse N1](https://developer.arm.com/Processors/Neoverse%20N1)); many N1-based SoCs also add a larger system-level cache, but 256MB still dwarfs it. It then uses a `STRIDE` macro to control the access pattern:
 * **`STRIDE = 1`**: This sequential access pattern is designed to be highly efficient, as the CPU's hardware prefetcher can easily predict and load the next 64-byte cache line before it's needed.
-* **`STRIDE = 256`**: This strided pattern jumps 256 bytes (4 cache lines) at a time, designed to defeat the prefetcher and cause a cache miss on almost every access.
+* **`STRIDE = 256`**: This strided pattern jumps 256 bytes (4 cache lines) at a time, which largely defeats the prefetcher and triggers frequent last-level cache refills.
 
 ```c
 #include <stdio.h>
@@ -166,6 +166,8 @@ For the same amount of logical work, the cache-friendly code was **60 times fast
 | `IPC (Efficiency)`| 0.30 (Terrible) | **1.33 (Excellent)** | **4x More Efficient**|
 | `L3 Cache Refills`| 5.3 billion | **85.8 million** | **98.4% Fewer Misses** |
 
+**Note**: With sequential access, compilers may auto-vectorize the friendly loop, further increasing the speedup. Even without vectorization, the cache-friendly pattern still delivers a dramatic improvement.
+
 The **IPC (Instructions Per Cycle)** tells the story of hardware efficiency. A high IPC means the CPU is working efficiently; a low IPC means it is frequently stalled. E.g. the CPU is stalled waiting for data from memory, its processing pipeline is effectively frozen.
 
   * The unfriendly code achieved a dismal **IPC of 0.30**. The CPU was stalled over 70% of the time.
@@ -177,7 +179,7 @@ We can now calculate the average cost of a last-level miss. The penalty is the d
 
 **1. Cost of an Unfriendly Operation (a Miss)**
 
-This calculation finds the average cost of a single operation when it's almost guaranteed to miss all caches. We use the data from the `Stride=256` test, which we proved had a nearly 100% miss rate.
+This calculation finds the average cost of a single operation under a pattern that induces a very high last-level miss rate. We use the data from the `Stride=256` test, which showed billions of LLC refills.
 
   * **Formula:** `Total Cycles / Total Operations`
   * **Calculation:** `126.1B cycles / 5.24B ops ≈` **24.0 cycles**.
@@ -194,7 +196,20 @@ The final cost of a miss is the difference between these two scenarios.
 
   * **Calculation:** `24.0 cycles (miss) - 0.38 cycles (hit) =` **23.62 cycles**.
 
-The internet suggests a typical clock speed of 2.5 GHz for the Neoverse-N1. Using this value:
-`23.62 cycles / 2.5 GHz =` **\~9.4 nanoseconds**.
+To convert this cycle penalty to nanoseconds, we first determine the effective clock speed of the CPU during the test. We can calculate this directly from the `perf` data of our `Stride=256` run:
 
-That's the price. Every trip to main memory costs roughly 9.4 nanoseconds, during which a multi-gigahertz processor is stalled. This journey demonstrates that cache performance isn't a theoretical concern; it's a concrete factor that can alter application performance by orders of magnitude.
+**Effective Clock Speed**: Total Cycles / Time Elapsed
+
+**Calculation**: 126.08B cycles / 42.98 seconds ≈ 2.93 GHz
+
+Using this measured clock speed, we can find the final cost:
+`23.62 cycles / 2.93 GHz =` **~8.1 nanoseconds**.
+
+That's the price. In this throughput-saturated scenario, each trip to main memory amortizes to roughly 8 nanoseconds. This journey demonstrates that cache performance isn't a theoretical concern; it's a concrete factor that can alter application performance by orders of magnitude.
+
+## Throughput vs. Latency: A Critical Distinction
+It's important to clarify what this 8ns figure represents. Our stride test bombards the memory system with many independent requests. Modern CPUs excel at this, handling many requests in flight simultaneously via out-of-order execution and prefetchers (often described as Memory-Level Parallelism).
+
+Therefore, our ~8ns is not the true round-trip time of a single miss. It's the amortized throughput cost of a miss when the memory system is fully saturated. While one request is traveling to RAM, many others are in different stages of the same journey.
+
+Measuring the true, serialized latency of a single DRAM access requires a different kind of test — one that makes each memory access dependent on the previous one. I have another post prepared where we will do just that, using a pointer-chasing benchmark to isolate and measure true per-hop memory latency.
