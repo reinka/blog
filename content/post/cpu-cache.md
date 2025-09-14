@@ -124,7 +124,7 @@ Adding the checksum loop and printf creates a data dependency that the optimizer
 
 ## The Definitive Result
 
-To get a true apples-to-apples comparison, the workload is equalized. The `Stride=256` test performs `5000 * (256MB / 256) = ~5.24 billion` logical operations. To match this, the `Stride=1` test's outer loop is scaled down to `20` iterations (`20 * (256MB / 1) ≈ ~5.36 billion` ops).
+To get a true apples-to-apples comparison, the workload is equalized. The `Stride=256` test performs `5000 * (256MB / 256) = ~5.24 billion` logical operations. To match this, the `Stride=1` test's outer loop is scaled down to `20` iterations (`20 * (256MB / 1) ≈ ~5.37 billion` ops).
 
 #### Stride = 256 (Cache-Unfriendly)
 
@@ -189,7 +189,7 @@ This calculation finds the average cost of a single operation under a pattern th
 This calculation finds the average cost when an operation is almost guaranteed to be a cache hit. We use the data from the `Stride=1` test, which had a \>98% hit rate.
 
   * **Formula:** `Total Cycles / Total Operations`
-  * **Calculation:** `2.03B cycles / 5.36B ops ≈` **0.38 cycles**.
+  * **Calculation:** `2.03B cycles / 5.37B ops ≈` **0.38 cycles**.
 
 **3. The Penalty**
 The final cost of a miss is the difference between these two scenarios.
