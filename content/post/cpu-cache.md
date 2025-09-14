@@ -160,7 +160,7 @@ For the same amount of logical work, the cache-friendly code was **60 times fast
 
 | Metric | Stride = 256 (Unfriendly) | Stride = 1 (Friendly, Equal Work) | Result |
 | :--- | :--- | :--- | :--- |
-| **Logical Workload** | **\~5.24 Billion Ops** | **\~5.24 Billion Ops** | **Equal** |
+| **Logical Workload** | **\~5.24 Billion Ops** | **\~5.37 Billion Ops** | **≈ equal (within 2.4%)** |
 | `Time Elapsed` | 42.98 seconds | **0.71 seconds** | **60x Faster** |
 | `Instructions` | 37.7 billion | **2.7 billion** | **14x Fewer Instructions** |
 | `IPC (Efficiency)`| 0.30 (Terrible) | **1.33 (Excellent)** | **4x More Efficient**|
