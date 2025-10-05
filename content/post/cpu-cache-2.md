@@ -171,7 +171,7 @@ Both tests perform exactly 20 million pointer chases, but their performance is r
 | **L3 Refills** | 46.8 million | 25.8 million | **1.8x fewer** |
 | **IPC** | 0.12 | 0.96 | **8x** |
 
-Note the L3 refills: the sequential case has fewer despite touching more unique cache lines. The warmup pass pre-loads data, and the efficient prefetcher keeps it in L1/L2 longer, while random access causes more cache thrashing and refills.
+Note the L3 refills: the sequential case has fewer even though both tests touch the same working set. The warmup pass pre-loads data, and the efficient prefetcher keeps it in L1/L2 longer, while random access causes more cache thrashing and refills from L3.
 
 The random pattern forces the CPU to wait **481 cycles** per hop (9.63B cycles / 20M steps). Using the effective clock frequency (9.63B cycles / 3.35s ≈ 2.87 GHz), that's:
 
