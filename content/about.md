@@ -16,19 +16,7 @@ Research Center](https://www.bosch.de/en/our-company/bosch-in-germany/renningen/
 near Stuttgart where I was working on Deep Reinforcement Learning and Imitation 
 Learning algorithms for partially automated driving.
 
-I am also interested in [doing good better](https://www.effectivealtruism.org/doing-good-better/): 
-together with three friends I co-founded the university group [Effective Altruism Magdeburg](https://www.facebook.com/eamagdeburg/)
-where we promoted the ideas and philosophy behind effective altruism (EA). More precisely, my EA interests focus on [longtermism](https://forum.effectivealtruism.org/tag/longtermism) ever
-since reading [Yudkowsky's sequences](https://www.lesswrong.com/tag/sequences) and 
-Nick Bostrom's [Superintelligence](https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies) 
-back in 2014. If you're interested in finding out more about why the 
-[AI alignment problem](https://www.lesswrong.com/posts/ZeE7EKHTFMBs8eMxn/clarifying-ai-alignment)
-matters now -- and not only in in a few decades (or whenever we have enough computing power to match the human brain) -- 
-there's a great series by Holden Karnofsky titled 
-["The most important century"](https://www.cold-takes.com/roadmap-for-the-most-important-century-series/). There's also
-a great 80,000 hours podcast episode: 
-[#109 – Holden Karnofsky on the most important century](https://80000hours.org/podcast/episodes/holden-karnofsky-most-important-century/).
-
+In my free time recently, I've been diving deeper into system performance, focusing on what it takes to build and maintain high-throughput, low-latency applications. My main interest is in the monitoring and performance tuning aspects of such systems. To that end, I'm currently learning about kernel-bypassing, low-level profiling techniques, and how hardware realities like CPU caches and memory access patterns dictate the performance envelope.
 
 The purpose of this blog is to serve as a reference for my future self. And hopefully, someone else will find something useful here.
 
